@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "pluginName": "网页微信助手",
+  "description": "快速发送信息给微信联系人",
+  "author": "uTools官方",
+  "homepage": "https://u.tools",
+  "preload": "preload.js",
+  "logo": "logo.png",
+  "features": [
+    {
+      "code": "wechat_send",
+      "explain": "发送给微信联系人",
+      "cmds": [
+        {
+          "type": "regex",
+          "match": "/^发送给.+/",
+          "label": "发送给 👤",
+          "minLength": 4,
+          "maxLength": 10
+        },
+        {
+          "type": "over",
+          "exclude": "/^发送?给?/",
+          "label": "发送给 👤"
+        },
+        {
+          "type": "img",
+          "label": "发送给 👤"
+        },
+        {
+          "type": "files",
+          "fileType": "file",
+          "label": "发送给 👤"
+        }
+      ]
+    }
+  ]
+}
