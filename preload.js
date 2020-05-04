@@ -175,7 +175,7 @@ function sendWechatMessage (contacter, action) {
     resizable: false
   }).then((result) => {
     window.utools.shellBeep()
-    if (result.length > 0 && /^data:image\/[a-z]+?;base64,/.test(result[0])) {
+    if (result && result.length > 0 && /^data:image\/[a-z]+?;base64,/.test(result[0])) {
       logSender(contacter, result[0])
     }
   }).catch(err => {
