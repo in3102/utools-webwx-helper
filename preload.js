@@ -162,7 +162,7 @@ function sendWechatMessage (contacter, action) {
     }
   } else {
     // 如果未发送任何内容显示窗口
-    workUBrowser.click('#editArea').show()
+    workUBrowser.show().focus('#editArea')
   }
 
   workUBrowser.run({
