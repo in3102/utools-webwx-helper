@@ -174,13 +174,16 @@ function sendWechatMessage (contacter, action) {
     maximizable: false,
     resizable: false
   }).then((result) => {
-    window.utools.shellBeep()
+    // window.utools.shellBeep()
+    if (action) {
+      window.utools.showNotification('已成功发送给「' + contacter + '」')
+    }
     if (result && result.length > 0 && /^data:image\/[a-z]+?;base64,/.test(result[0])) {
       logSender(contacter, result[0])
     }
   }).catch(err => {
     let errorStr = err.message
-    if (errorStr === 'wait: 3000 ms timeout') errorStr = '未找到联系人: ' + contacter
+    if (errorStr === 'wait: 3000 ms timeout') errorStr = '未找到联系人「' + contacter + '」'
     window.utools.showNotification(errorStr)
   })
 }
